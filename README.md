@@ -1,16 +1,12 @@
 # customor_manager
 
-A new Flutter project.
+客户与订单管理
 
-## Getting Started
+针对包含下单项目与客户收付款和折扣问题的app
+## 介绍
 
-This project is a starting point for a Flutter application.
+- 客户管理:合同、预交费用、文档上传、客户维护日期、客户等级
 
-A few resources to get you started if this is your first Flutter project:
+- 订单:下单项目、时间提醒、下单看板、价格、已收未收款
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 资料:订单项目维护、客户等级维护(根据等级给予不同价格)、
