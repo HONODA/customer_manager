@@ -1,8 +1,7 @@
 import 'package:customor_manager/common/ChoiceBar.dart';
-import 'package:customor_manager/view/customerv.dart';
-import 'package:customor_manager/view/mianv.dart';
 import 'package:flutter/material.dart';
 
+///tabbar选项卡内容
 // ignore: must_be_immutable
 class ChoiceCard extends StatelessWidget {
   ChoiceCard({Key key, this.choiceBar}) : super(key: key);
@@ -26,8 +25,10 @@ class ChoiceCard extends StatelessWidget {
                 ],
               ))),
           choiceBar.widget
+
+          ///从选项卡中获取各自的wideget组件,初始化和 viewmodel对象在[mainvm.dart]
         ]);
 
-    return stack;
+    return stack; //使用statck widget 可以使child下的所有组件依次从底层到顶层显示内容，有叠层效果
   }
 }

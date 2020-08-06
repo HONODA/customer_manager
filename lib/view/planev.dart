@@ -1,14 +1,14 @@
-import 'package:customor_manager/viewmodel/ordervm.dart';
+import 'package:customor_manager/viewmodel/planevm.dart';
 import 'package:flutter/material.dart';
 
-///订单用户交互界面
-class Orderv extends StatelessWidget {
-  final Ordervm ordervm = Ordervm();
+///看板内容
+class Planev extends StatelessWidget {
+  final Planevm planevm = Planevm();
   @override
   Widget build(BuildContext context) {
-    var items = ordervm.showOrderList();
+    var items = planevm.showPlaneList();
     return new ListView.builder(
-        itemCount: ordervm.showOrderList().length,
+        itemCount: planevm.showPlaneList().length,
         itemBuilder: (context, index) {
           return new SizedBox(
               height: 80,

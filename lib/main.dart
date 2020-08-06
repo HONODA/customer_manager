@@ -3,10 +3,11 @@ import 'package:customor_manager/view/choiceCard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:customor_manager/viewmodel/mainvm.dart';
-import 'package:customor_manager/view/mianv.dart';
 
 void main() => runApp(MyApp());
 
+///主界面展示
+//显示tabbar  如客户、订单、看板、资料、选项卡内容。
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,22 +27,27 @@ class MyApp extends StatelessWidget {
             length: Mainvm().showTabBar().length,
             child: new Scaffold(
               appBar: new AppBar(
-                title: Text('CAOM'),
+                title: Text('CAOM'), //主界面标题名称
                 bottom: new TabBar(
                     tabs: Mainvm().showTabBar().map((ChoiceBar b) {
                   return Tab(text: b.title, icon: new Icon(b.icon));
                 }).toList()),
+
+                ///将tabbar中图片和文字显示出来，viewmodel对象为 [Mainvm]
               ),
               body: new TabBarView(
+                  physics: new NeverScrollableScrollPhysics(),
                   children: Mainvm().showTabBar().map((ChoiceBar b) {
-                return new Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: new ChoiceCard(choiceBar: b),
-                );
-              }).toList()),
+                    return new Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: new ChoiceCard(choiceBar: b),
+                    );
+                  }).toList()),
+
+              ///此处主界面下面显示卡片内容viewmodel对象为[Mainvm],
             ),
           )),
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, //取消debug模式
     );
   }
 }
