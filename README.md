@@ -1,4 +1,4 @@
-# customor_manager
+# customer_manager
 
 客户与订单管理
 

@@ -1,3 +1,8 @@
+import 'package:customor_manager/view/customerv.dart';
+import 'package:customor_manager/view/itemv.dart';
+import 'package:customor_manager/view/orderv.dart';
+import 'package:customor_manager/view/personv.dart';
+import 'package:customor_manager/view/settingv.dart';
 import 'package:flutter/material.dart';
 // import 'package:rxdart/rxdart.dart'; 如果需要，自行添加插件
 
@@ -49,11 +54,15 @@ class Mainvm with ChangeNotifier {
 
   List<ChoiceBar> showTabBar() {
     return <ChoiceBar>[
-      ChoiceBar(title: '订单', icon: Icons.assignment),
-      ChoiceBar(title: '看板', icon: Icons.tv),
-      ChoiceBar(title: '客户', icon: Icons.person),
-      ChoiceBar(title: '资料', icon: Icons.border_color),
-      ChoiceBar(title: '设置', icon: Icons.settings),
+      ChoiceBar(title: '订单', icon: Icons.assignment, widget: new Customerv()),
+      ChoiceBar(title: '看板', icon: Icons.tv, widget: new Orderv()),
+      ChoiceBar(title: '客户', icon: Icons.person, widget: new Personv()),
+      ChoiceBar(title: '资料', icon: Icons.border_color, widget: new Itemv()),
+      ChoiceBar(title: '设置', icon: Icons.settings, widget: new Settingv()),
     ];
+  }
+
+  List<String> showOrderList() {
+    return new List<String>.generate(5, (i) => "Item $i");
   }
 }
