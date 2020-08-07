@@ -15,18 +15,20 @@ class Settingv extends StatelessWidget {
           return new SizedBox(
               height: 80,
               child: new Card(
-                  color: Colors.grey,
+                  color: Colors.white,
                   child: new Row(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new Text(
                           "${items[index].title}",
                           textScaleFactor: 1.5,
                           style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.justify,
                         ),
                         new SizedBox(
-                          width: size.width / 1.5,
+                          width: size.width / 3,
                         ),
                         //new Text("${items[index].tips}"),
                         items[index].widget

@@ -14,7 +14,7 @@ class ChoiceCard extends StatelessWidget {
         //fit: StackFit.loose,
         children: <Widget>[
           new Card(
-              color: Colors.black,
+              color: Color.fromARGB(100, 240, 230, 140),
               child: new Center(
                   child: new Column(
                 mainAxisSize: MainAxisSize.min,

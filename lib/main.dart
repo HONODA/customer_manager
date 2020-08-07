@@ -3,6 +3,7 @@ import 'package:customor_manager/view/choiceCard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:customor_manager/viewmodel/mainvm.dart';
+import 'package:customor_manager/viewmodel/settingvm.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter mvvm Demo',
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
+        brightness: Settingvm().getAppTheme(),
+        primarySwatch: Colors.orange,
       ),
 
       /// [ChangeNotifierProvider]。所有的viewModel通过 Provider 实现与view 层的绑定。
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             child: new Scaffold(
               appBar: new AppBar(
                 title: Text('CAOM'), //主界面标题名称
+                centerTitle: true,
                 bottom: new TabBar(
                     tabs: Mainvm().showTabBar().map((ChoiceBar b) {
                   return Tab(text: b.title, icon: new Icon(b.icon));
@@ -36,7 +38,8 @@ class MyApp extends StatelessWidget {
                 ///将tabbar中图片和文字显示出来，viewmodel对象为 [Mainvm]
               ),
               body: new TabBarView(
-                  physics: new NeverScrollableScrollPhysics(),
+                  physics:
+                      new NeverScrollableScrollPhysics(), //TabBarView不允许左右滑块
                   children: Mainvm().showTabBar().map((ChoiceBar b) {
                     return new Padding(
                       padding: const EdgeInsets.all(16.0),

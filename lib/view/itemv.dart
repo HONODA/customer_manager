@@ -13,10 +13,11 @@ class Itemv extends StatelessWidget {
           return new SizedBox(
               height: 80,
               child: new Card(
-                  color: Colors.grey,
+                  color: Colors.white,
                   child: new Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new Text(
                           "${items[index]}",
