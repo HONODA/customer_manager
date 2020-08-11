@@ -1,4 +1,4 @@
-import 'package:customor_manager/viewmodel/planevm.dart';
+import 'package:customor_manager/viewmodel/Planevm.dart';
 import 'package:flutter/material.dart';
 
 ///看板内容

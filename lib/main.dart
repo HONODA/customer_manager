@@ -1,9 +1,10 @@
 import 'package:customor_manager/common/ChoiceBar.dart';
-import 'package:customor_manager/view/choiceCard.dart';
+import 'package:customor_manager/view/ChoiceCard.dart';
+import 'package:customor_manager/view/MainPopMenuv.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:customor_manager/viewmodel/mainvm.dart';
-import 'package:customor_manager/viewmodel/settingvm.dart';
+import 'package:customor_manager/viewmodel/Mainvm.dart';
+import 'package:customor_manager/viewmodel/Settingvm.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,6 +47,19 @@ class MyApp extends StatelessWidget {
                       child: new ChoiceCard(choiceBar: b),
                     );
                   }).toList()),
+              bottomNavigationBar: new BottomAppBar(
+                elevation: 10.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    new IconButton(
+                      icon: new Icon(Icons.search),
+                      onPressed: () {},
+                    ),
+                    new MainPopMenuv(),
+                  ],
+                ),
+              ),
 
               ///此处主界面下面显示卡片内容viewmodel对象为[Mainvm],
             ),

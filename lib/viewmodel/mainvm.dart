@@ -1,8 +1,8 @@
-import 'package:customor_manager/view/customerv.dart';
-import 'package:customor_manager/view/itemv.dart';
-import 'package:customor_manager/view/orderv.dart';
-import 'package:customor_manager/view/planev.dart';
-import 'package:customor_manager/view/settingv.dart';
+import 'package:customor_manager/view/customer/Customerv.dart';
+import 'package:customor_manager/view/Itemv.dart';
+import 'package:customor_manager/view/Orderv.dart';
+import 'package:customor_manager/view/Planev.dart';
+import 'package:customor_manager/view/Settingv.dart';
 import 'package:flutter/material.dart';
 // import 'package:rxdart/rxdart.dart'; 如果需要，自行添加插件
 

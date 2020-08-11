@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:customor_manager/viewmodel/mainvm.dart';
+import 'package:customor_manager/viewmodel/Mainvm.dart';
 
 class Mainv extends StatelessWidget {
   @override
