@@ -1,9 +1,14 @@
+import 'package:customor_manager/common/MyExpandsionBean.dart';
 import 'package:flutter/material.dart';
 
-///未使用
 class CustomerDetailvm with ChangeNotifier {
   //显示客户列表
-  List<String> showCutomerList() {
+  MyExpandsionBean showCutomerList(int id) {
+    return MyExpandsionBean(id, id.toString(), false);
+  }
+
+  //显示对应客户列表
+  List<String> showCutomerDetailList(int id) {
     return new List<String>.generate(10, (i) => "Item $i");
   }
 }

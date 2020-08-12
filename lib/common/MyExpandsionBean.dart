@@ -1,5 +1,6 @@
 class MyExpandsionBean {
   var isOpen;
   var index;
-  MyExpandsionBean(this.index, this.isOpen);
+  String value;
+  MyExpandsionBean(this.index, this.value, this.isOpen);
 }
