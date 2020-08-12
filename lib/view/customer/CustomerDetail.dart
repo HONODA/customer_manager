@@ -14,6 +14,7 @@ class _CutomerDetail extends State<CutomerDetail> {
   bool loading;
   int _id = -1;
   MyExpandsionBean expandState; //开展开的状态列表,ExpandStateBean是自定义的类
+
   _CutomerDetail(int id) {
     _id = id;
     expandState = CustomerDetailvm().showCutomerList(_id);
@@ -43,6 +44,7 @@ class _CutomerDetail extends State<CutomerDetail> {
                   FutureBuilder(
                       future: showCutomerinf(1),
                       builder: (context, snapshot) {
+                        if (!expandState.isOpen) return Text('');
                         switch (snapshot.connectionState) {
                           case ConnectionState.none:
                             return new Text(
@@ -57,7 +59,7 @@ class _CutomerDetail extends State<CutomerDetail> {
                               return snapshot.data;
                         }
                       }),
-                  new MaterialButton(child: Text('新增明细'), onPressed: () {})
+                  showbutton(expandState.isOpen)
                 ], //显示客户详细信息
               ),
               isExpanded: expandState.isOpen)
@@ -80,5 +82,11 @@ class _CutomerDetail extends State<CutomerDetail> {
         },
         initialItemCount: items.length,
         shrinkWrap: true);
+  }
+
+  Widget showbutton(bool i) {
+    return i
+        ? new MaterialButton(child: Text('新增明细'), onPressed: () {})
+        : Text('');
   }
 }
