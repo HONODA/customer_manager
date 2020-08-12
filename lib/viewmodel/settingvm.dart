@@ -11,6 +11,7 @@ class Settingvm with ChangeNotifier {
         tips: '改变界面主题',
         widget: MyDropDown(items: <String>['深色', '浅色', '跟随系统'])),
     new SettingTable(title: '字体大小', tips: '将界面大小设置成希望的样子', widget: MySlider()),
+
   ];
 
   //显示设置列表

@@ -22,15 +22,11 @@ class _CutomerDetail extends State<CutomerDetail> {
   @override
   Widget build(BuildContext context) {
     return ExpansionPanelList(
-        //交互回调属性，里面是个匿名函数
         expansionCallback: (index, bol) {
-          //调用内部方法
           setState(() {
-            //遍历可展开状态列表
             expandState.isOpen = !expandState.isOpen;
           });
         },
-        //进行map操作，然后用toList再次组成List
         children: [
           ExpansionPanel(
               headerBuilder: (context, isExpanded) {

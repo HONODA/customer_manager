@@ -1,6 +1,5 @@
 import 'package:customor_manager/viewmodel/Settingvm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 class NewCutomerv extends StatefulWidget {
   @override
@@ -12,12 +11,8 @@ class _NewCutomerv extends State<NewCutomerv> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate
-      ],
-      supportedLocales: [const Locale('zh', 'CH'), const Locale('en', 'US')],
-      locale: Locale('zh'),
+      //supportedLocales: [const Locale('zh', 'CH'), const Locale('en', 'US')],
+      //locale: Locale('zh'),
       title: '新增',
       theme: ThemeData(
         brightness: Settingvm().getAppTheme(),
@@ -59,7 +54,7 @@ class _NewCutomerv extends State<NewCutomerv> {
                     child: Text(formatDate(this.timeval)),
                     onPressed: () {
                       showDatePicker(
-                        locale: Locale('en'),
+                        //locale: Locale('en'),
                         context: context,
                         initialDate: new DateTime.now(),
                         firstDate: new DateTime.now()
