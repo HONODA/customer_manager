@@ -3,6 +3,7 @@ import 'package:customor_manager/view/Itemv.dart';
 import 'package:customor_manager/view/Orderv.dart';
 import 'package:customor_manager/view/Planev.dart';
 import 'package:customor_manager/view/Settingv.dart';
+import 'package:customor_manager/view/customer/NewCustomerv.dart';
 import 'package:flutter/material.dart';
 // import 'package:rxdart/rxdart.dart'; 如果需要，自行添加插件
 
@@ -52,14 +53,15 @@ class Mainvm with ChangeNotifier {
     });
   }
 
-//显示主界面TabBar
+  ///显示主界面TabBar[widget]主显示的界面
   List<ChoiceBar> showTabBar() {
     return <ChoiceBar>[
-      ChoiceBar(title: '订单', icon: Icons.assignment, widget: new Orderv()),
+      ChoiceBar(title: '订单', icon: Icons.assignment, widget: new Orderv(),),
       ChoiceBar(title: '看板', icon: Icons.tv, widget: new Planev()),
-      ChoiceBar(title: '客户', icon: Icons.person, widget: new Customerv()),
+      ChoiceBar(title: '客户', icon: Icons.person, widget: new Customerv(),newwidget: NewCutomerv()),
       ChoiceBar(title: '资料', icon: Icons.border_color, widget: new Itemv()),
       ChoiceBar(title: '设置', icon: Icons.settings, widget: new Settingv()),
     ];
   }
+
 }

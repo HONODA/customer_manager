@@ -1,12 +1,16 @@
-import 'package:customor_manager/view/customer/NewCustomerv.dart';
+import 'package:customor_manager/common/ChoiceBar.dart';
+import 'package:customor_manager/viewmodel/mainvm.dart';
 import 'package:flutter/material.dart';
+import 'package:customor_manager/common/pool.dart';
 
 class MainPopMenuv extends StatefulWidget {
+  MainPopMenuv();
   _MainPopMenuv createState() => _MainPopMenuv();
 }
 
 class _MainPopMenuv extends State<MainPopMenuv> {
-  List<Widget> mList = [NewCutomerv()]; //组成一个int类型数组，用来控制索引
+  _MainPopMenuv();
+  List<ChoiceBar> mList = Mainvm().showTabBar(); //组成一个int类型数组，用来控制索引
   // List<MyExpandsionBean> expandStateList; //开展开的状态列表,ExpandStateBean是自定义的类
 
   //构造方法，调用这个类的时候自动执行
@@ -18,8 +22,29 @@ class _MainPopMenuv extends State<MainPopMenuv> {
         onSelected: (int value) {
           setState(() {
             //_bodyText = value;
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => mList[value]));
+            switch(value){
+              case 0 :///在增加界面
+              if (pool.currentChoiceInt != null && mList[pool.currentChoiceInt].newwidget!=null)
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) {
+                    return mList[pool.currentChoiceInt].newwidget;
+                }));
+              else
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('无显示的界面'),
+                    ));
+
+                break;
+              default:
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('打开到奇怪的界面'),
+                    ));
+            }
+;
           });
         },
         //这是弹出菜单的建立，包含了两个子项，分别是增加和删除以及他们对应的值

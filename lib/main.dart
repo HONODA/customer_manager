@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:customor_manager/viewmodel/Mainvm.dart';
 import 'package:customor_manager/viewmodel/Settingvm.dart';
+import 'package:customor_manager/common/pool.dart';
 
 void main() => runApp(MyApp());
 
 ///主界面展示
 //显示tabbar  如客户、订单、看板、资料、选项卡内容。
 class MyApp extends StatelessWidget {
+  int currentBarint;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
                 title: Text('CAOM'), //主界面标题名称
                 centerTitle: true,
                 bottom: new TabBar(
+                  onTap: (val){pool.currentChoiceInt = val;},
                     tabs: Mainvm().showTabBar().map((ChoiceBar b) {
                   return Tab(text: b.title, icon: new Icon(b.icon));
                 }).toList()),
