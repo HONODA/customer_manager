@@ -39,14 +39,13 @@ class MyApp extends StatelessWidget {
                 ///将tabbar中图片和文字显示出来，viewmodel对象为 [Mainvm]
               ),
               body: new TabBarView(
-                  //physics:
-                  //new NeverScrollableScrollPhysics(), //TabBarView不允许左右滑块
+                  physics: NeverScrollableScrollPhysics(), //TabBarView不允许左右滑块
                   children: Mainvm().showTabBar().map((ChoiceBar b) {
-                return new Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: new ChoiceCard(choiceBar: b),
-                );
-              }).toList()),
+                    return new Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: new ChoiceCard(choiceBar: b),
+                    );
+                  }).toList()),
               bottomNavigationBar: new BottomAppBar(
                 elevation: 10.0,
                 child: Row(

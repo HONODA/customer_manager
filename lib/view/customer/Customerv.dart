@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:customor_manager/view/customer/CustomerDetail.dart';
 import 'package:customor_manager/viewmodel/Customervm.dart';
 import 'package:flutter/material.dart';
@@ -7,11 +5,9 @@ import 'package:flutter/material.dart';
 ///客户界面,显示所有客户
 // ignore: must_be_immutable
 class Customerv extends StatefulWidget {
-
   @override
   _Customerv createState() => _Customerv();
 }
-
 
 class _Customerv extends State<Customerv> {
   @override
@@ -19,9 +15,9 @@ class _Customerv extends State<Customerv> {
     customerlist = Customervm().showCutomerList();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return FutureBuilder(
         future: getCustomerlist(),
         builder: (context, snapshot) {
@@ -30,13 +26,17 @@ class _Customerv extends State<Customerv> {
               return new Text(
                   'Press button to start'); //如果_calculation未执行则提示：请点击开始
             case ConnectionState.waiting:
-              return new CircularProgressIndicator(
-                strokeWidth: 2.0,
-                backgroundColor: Colors.deepOrange,
-                // value: 0.2,
-                valueColor: new AlwaysStoppedAnimation<Color>(
-                    Colors.orange),
-              ); //如果_calculation正在执行则提示：加载中
+              return new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(
+                      strokeWidth: 2.0,
+                      backgroundColor: Colors.deepOrange,
+                      valueColor:
+                          new AlwaysStoppedAnimation<Color>(Colors.orange),
+                    )
+                  ]); //如果_calculation正在执行则提示：加载中
             default: //如果_calculation执行完毕
               if (snapshot.hasError) //若_calculation执行出现异常
                 return new Text('Error: ${snapshot.error}');
@@ -45,16 +45,17 @@ class _Customerv extends State<Customerv> {
           }
         });
   }
+
   final Customervm customervm = Customervm();
   List<String> customerlist;
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   Future<Widget> getCustomerlist() async {
-
     return new AnimatedList(
-        key:_listKey,
+        key: _listKey,
         initialItemCount: customerlist.length,
         itemBuilder: (context, index, animation) {
-          return new SizeTransition(sizeFactor: animation,
+          return new SizeTransition(
+              sizeFactor: animation,
               child: new Card(
                   color: Colors.white,
                   child: new Column(
@@ -75,13 +76,20 @@ class _Customerv extends State<Customerv> {
                                   return new Text(
                                       'Press button to start'); //如果_calculation未执行则提示：请点击开始
                                 case ConnectionState.waiting:
-                                  return new CircularProgressIndicator(
-                                    strokeWidth: 2.0,
-                                    backgroundColor: Colors.deepOrange,
-                                    // value: 0.2,
-                                    valueColor: new AlwaysStoppedAnimation<Color>(
-                                        Colors.orange),
-                                  ); //如果_calculation正在执行则提示：加载中
+                                  return new Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        CircularProgressIndicator(
+                                          strokeWidth: 2.0,
+                                          backgroundColor: Colors.deepOrange,
+                                          valueColor:
+                                              new AlwaysStoppedAnimation<Color>(
+                                                  Colors.orange),
+                                        )
+                                      ]); //如果_calculation正在执行则提示：加载中
                                 default: //如果_calculation执行完毕
                                   if (snapshot.hasError) //若_calculation执行出现异常
                                     return new Text('Error: ${snapshot.error}');
@@ -93,16 +101,11 @@ class _Customerv extends State<Customerv> {
                         //  "${items[index]}",
                         //  textScaleFactor: 2,
                         //)
-                      ]))
-
-          );
-        }
-    );
+                      ])));
+        });
   }
 
   Future<Widget> loadingCustomDetail(int index) async {
-
     return new CutomerDetail(index);
   }
-
 }

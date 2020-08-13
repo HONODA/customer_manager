@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:customor_manager/viewmodel/customer/CutomerDetailvm.dart';
 import 'package:customor_manager/common/MyExpandsionBean.dart';
 
+import 'CustomerItemDetail.dart';
+
 //显示客户明细
 // ignore: must_be_immutable
 class CutomerDetail extends StatefulWidget {
@@ -32,7 +34,8 @@ class _CutomerDetail extends State<CutomerDetail> {
               headerBuilder: (context, isExpanded) {
                 String name = expandState.value;
                 return ListTile(
-                  title: Text('公司名称:$name'),
+                  title: Text('$name'),
+                  //trailing: Text('22'),
                 );
               },
               body: new Column(
@@ -47,7 +50,7 @@ class _CutomerDetail extends State<CutomerDetail> {
                                 'Press button to start'); //如果_calculation未执行则提示：请点击开始
                           case ConnectionState.waiting:
                             return new Text(
-                                'Awaiting result...'); //如果_calculation正在执行则提示：加载中
+                                '等待结果...'); //如果_calculation正在执行则提示：加载中
                           default: //如果_calculation执行完毕
                             if (snapshot.hasError) //若_calculation执行出现异常
                               return new Text('Error: ${snapshot.error}');
@@ -70,10 +73,30 @@ class _CutomerDetail extends State<CutomerDetail> {
             (BuildContext context, int index, Animation<double> animation) {
           String item = items[index];
           return Dismissible(
+            direction: DismissDirection.startToEnd,
+            background: new Container(
+                color: Colors.red,
+                padding: EdgeInsets.all(8),
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                  children: [Icon(Icons.delete_forever), Text('删除')],
+                )),
             key: Key(item),
-            child: ListTile(
-              title: Text('内容'),
+            child: MaterialButton(
+              child: ListTile(
+                title: Text('内容'), //详细信息显示内容
+                trailing: Icon(Icons.chevron_right),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => new CustomerItemDetail()));
+              },
             ),
+            onDismissed: (diretion) {
+              print(diretion);
+            },
           );
         },
         initialItemCount: items.length,
