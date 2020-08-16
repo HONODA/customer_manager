@@ -1,7 +1,8 @@
 import 'package:customor_manager/common/ChoiceBar.dart';
+import 'package:customor_manager/common/ViewModel.dart';
 import 'package:flutter/material.dart';
 
-class CustomerDetailCardvm with ChangeNotifier {
+class CustomerDetailCardvm extends ViewModel {
   //显示客户列表
   List<ChoiceBar> showCutomerDetailList() {
     return <ChoiceBar>[
