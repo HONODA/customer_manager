@@ -1,4 +1,4 @@
-import 'package:customor_manager/common/ViewModel.dart';
+import 'package:customer_manager/common/ViewModel.dart';
 
 ///显示客户等级
 class CustomerItemDetailvm extends ViewModel {

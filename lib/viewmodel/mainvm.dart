@@ -1,14 +1,14 @@
-import 'package:customor_manager/view/customer/Customerv.dart';
-import 'package:customor_manager/view/Itemv.dart';
-import 'package:customor_manager/view/Orderv.dart';
-import 'package:customor_manager/view/Planev.dart';
-import 'package:customor_manager/view/Settingv.dart';
-import 'package:customor_manager/view/customer/NewCustomerv.dart';
+import 'package:customer_manager/view/customer/Customerv.dart';
+import 'package:customer_manager/view/Itemv.dart';
+import 'package:customer_manager/view/Orderv.dart';
+import 'package:customer_manager/view/Planev.dart';
+import 'package:customer_manager/view/Settingv.dart';
+import 'package:customer_manager/view/customer/NewCustomerv.dart';
 import 'package:flutter/material.dart';
 // import 'package:rxdart/rxdart.dart'; 如果需要，自行添加插件
 
-import 'package:customor_manager/model/mainm.dart';
-import 'package:customor_manager/common/ChoiceBar.dart';
+import 'package:customer_manager/model/mainm.dart';
+import 'package:customer_manager/common/ChoiceBar.dart';
 
 /// with ChangeNotifier : 通过 notifyListeners() 函数，可以通知本对象数据的正在使用者们。
 /// 如 state 变量，在改变后调用 notifyListeners(), UI根据值重新构建登录按钮显示内容

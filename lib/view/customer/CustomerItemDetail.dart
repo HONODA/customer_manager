@@ -1,5 +1,5 @@
-import 'package:customor_manager/viewmodel/customer/CustomerItemDetialvm.dart';
-import 'package:customor_manager/viewmodel/settingvm.dart';
+import 'package:customer_manager/viewmodel/customer/CustomerItemDetialvm.dart';
+import 'package:customer_manager/viewmodel/settingvm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

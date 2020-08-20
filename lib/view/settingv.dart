@@ -1,4 +1,4 @@
-import 'package:customor_manager/viewmodel/Settingvm.dart';
+import 'package:customer_manager/viewmodel/Settingvm.dart';
 import 'package:flutter/material.dart';
 
 ///设置界面

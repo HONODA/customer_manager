@@ -1,7 +1,7 @@
-import 'package:customor_manager/common/myDropDown.dart';
+import 'package:customer_manager/common/myDropDown.dart';
 import 'package:flutter/material.dart';
-import 'package:customor_manager/common/SettingTable.dart';
-import 'package:customor_manager/common/mySlider.dart';
+import 'package:customer_manager/common/SettingTable.dart';
+import 'package:customer_manager/common/mySlider.dart';
 
 class Settingvm with ChangeNotifier {
   double value = 0;

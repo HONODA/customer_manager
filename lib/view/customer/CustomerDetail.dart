@@ -1,28 +1,58 @@
+import 'package:customer_manager/common/CustomerS.dart';
 import 'package:flutter/material.dart';
-import 'package:customor_manager/viewmodel/customer/CutomerDetailvm.dart';
-import 'package:customor_manager/common/MyExpandsionBean.dart';
+import 'package:customer_manager/viewmodel/customer/CutomerDetailvm.dart';
+import 'package:customer_manager/common/MyExpandsionBean.dart';
+import 'package:provider/provider.dart';
 
 import 'CustomerItemDetail.dart';
 
 //显示客户明细
-// ignore: must_be_immutable
 class CutomerDetail extends StatefulWidget {
+  CustomerS customer;
   int id = -1;
-  CutomerDetail(this.id);
-  _CutomerDetail createState() => _CutomerDetail(id);
+  CutomerDetail(this.id, this.customer);
+  _CutomerDetail createState() => _CutomerDetail(id, customer);
 }
 
 class _CutomerDetail extends State<CutomerDetail> {
-  bool loading;
+  CustomerS _customerS;
+  CustomerDetailvm customerDetailvm;
   int _id = -1;
   MyExpandsionBean expandState; //开展开的状态列表,ExpandStateBean是自定义的类
 
-  _CutomerDetail(int id) {
+  _CutomerDetail(int id, CustomerS _customers) {
     _id = id;
-    expandState = CustomerDetailvm().showCutomerList(_id);
+    _customerS = _customers;
   }
   @override
   Widget build(BuildContext context) {
+    return MultiProvider(
+        providers: [ChangeNotifierProvider(create: (_) => CustomerDetailvm())],
+        child: Consumer<CustomerDetailvm>(builder: (_, custdevm, w) {
+          customerDetailvm = custdevm;
+          switch (custdevm.showCustomerListState) {
+            case -1:
+              return MaterialButton(
+                  onPressed: () {
+                    custdevm.showCutomerList(_id);
+                  },
+                  child: Icon(Icons.refresh));
+              break;
+            case 0:
+              custdevm.showCutomerList(_id);
+              return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [CircularProgressIndicator()]);
+              break;
+            case 1:
+              return showCustomerDetial();
+          }
+          return Icon(Icons.cancel);
+        }));
+  }
+
+  Widget showCustomerDetial() {
+    expandState = customerDetailvm.showcustomerlistBean;
     return ExpansionPanelList(
         expansionCallback: (index, bol) {
           setState(() {
@@ -32,9 +62,9 @@ class _CutomerDetail extends State<CutomerDetail> {
         children: [
           ExpansionPanel(
               headerBuilder: (context, isExpanded) {
-                String name = expandState.value;
+                //String name = expandState.value;
                 return ListTile(
-                  title: Text('$name'),
+                  title: Text('${_customerS.name}'),
                   //trailing: Text('22'),
                 );
               },

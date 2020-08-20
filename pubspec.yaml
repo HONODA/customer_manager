@@ -1,5 +1,5 @@
-name: customor_manager
-description: A new Flutter project.
+name: customer_manager
+description: 客户订单管理系统.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.1.0
+ # sqljocky: 2.0.0
  # flutter_localizations:
  #   sdk: flutter
   #modal_progress_hud: ^0.1.3 #显示进度

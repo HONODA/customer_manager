@@ -1,7 +1,7 @@
-import 'package:customor_manager/common/ChoiceBar.dart';
-import 'package:customor_manager/viewmodel/mainvm.dart';
+import 'package:customer_manager/common/ChoiceBar.dart';
+import 'package:customer_manager/viewmodel/mainvm.dart';
 import 'package:flutter/material.dart';
-import 'package:customor_manager/common/pool.dart';
+import 'package:customer_manager/common/pool.dart';
 
 class MainPopMenuv extends StatefulWidget {
   MainPopMenuv();

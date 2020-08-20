@@ -1,4 +1,4 @@
-import 'package:customor_manager/common/ChoiceBar.dart';
+import 'package:customer_manager/common/ChoiceBar.dart';
 import 'package:flutter/material.dart';
 
 ///tabbar选项卡内容

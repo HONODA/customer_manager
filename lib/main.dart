@@ -1,11 +1,11 @@
-import 'package:customor_manager/common/ChoiceBar.dart';
-import 'package:customor_manager/view/ChoiceCard.dart';
-import 'package:customor_manager/view/MainPopMenuv.dart';
+import 'package:customer_manager/common/ChoiceBar.dart';
+import 'package:customer_manager/view/ChoiceCard.dart';
+import 'package:customer_manager/view/MainPopMenuv.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:customor_manager/viewmodel/Mainvm.dart';
-import 'package:customor_manager/viewmodel/Settingvm.dart';
-import 'package:customor_manager/common/pool.dart';
+import 'package:customer_manager/viewmodel/Mainvm.dart';
+import 'package:customer_manager/viewmodel/Settingvm.dart';
+import 'package:customer_manager/common/pool.dart';
 
 void main() => runApp(MyApp());
 
