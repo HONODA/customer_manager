@@ -34,16 +34,18 @@ class MyApp extends StatelessWidget {
                 title: Text('CAOM'), //主界面标题名称
                 centerTitle: true,
                 bottom: new TabBar(
-                  onTap: (val){pool.currentChoiceInt = val;},
-                    tabs: Mainvm().showTabBar().map((ChoiceBar b) {
-                  return Tab(text: b.title, icon: new Icon(b.icon));
-                }).toList()),
+                    onTap: (val) {
+                      pool.currentChoiceInt = val;
+                    },
+                    tabs: Mainvm().showTabBar().map((var b) {
+                      return Tab(text: b.title, icon: new Icon(b.icon));
+                    }).toList()),
 
                 ///将tabbar中图片和文字显示出来，viewmodel对象为 [Mainvm]
               ),
               body: new TabBarView(
                   physics: NeverScrollableScrollPhysics(), //TabBarView不允许左右滑块
-                  children: Mainvm().showTabBar().map((ChoiceBar b) {
+                  children: Mainvm().showTabBar().map((var b) {
                     return new Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: new ChoiceCard(choiceBar: b),
