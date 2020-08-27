@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.1.0
+  http: ^0.12.2
  # sqljocky: 2.0.0
  # flutter_localizations:
  #   sdk: flutter
